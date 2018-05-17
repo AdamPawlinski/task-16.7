@@ -1,0 +1,23 @@
+.todoApp {
+    background-color: #F5F5F5;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.title {
+  background-color: #222;
+  color: #F5F5F5;
+  font-size: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 60vw;
+  margin-top: 20vw;
+}
