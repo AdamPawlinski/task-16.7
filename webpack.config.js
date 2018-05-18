@@ -1,7 +1,26 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeJsPlugin = require('optimize-js-plugin');
+const plugins = [
+  new HtmlWebpackPlugin({
+    template: 'src/index.html',
+    filename: 'index.html',
+    inject: 'body'
+})];
 
 module.exports = (env) => {
   const environment =  env || 'production';
+  if (env === 'production') {
+    plugins.push(
+      new UglifyJSPlugin({
+        test: /\.js($|\?)/i
+    }),
+      new OptimizeJsPlugin({
+        sourceMap: false
+    })
+    )
+  }
   return {
     mode: environment,
     entry: './src/index.js',
@@ -29,8 +48,6 @@ module.exports = (env) => {
         }
       ]
     },
-    optimization: {
-      minimize: false
-    }
+    plugins: plugins
   }
 };
