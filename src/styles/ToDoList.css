@@ -1,3 +1,5 @@
 .todolist {
-
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20%;
 }

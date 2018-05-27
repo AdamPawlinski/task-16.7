@@ -33,19 +33,19 @@ class App extends React.Component {
   }
 
   removeTodo(id) {
-    const remainder = this.state.data.filter(todo => todo.id !==id);
+    const remainder = this.state.data.filter(todo => todo.id !== id).bind(this);
     this.setState({data: remainder});
-  }
-
-  dataLength(data) {
-    return this.state.data.length;
   }
 
   render() {
     return (
-      <div className={style.todoApp}>
-        <Title dataList={this.dataLength}/>
-        <ToDoList todo={this.state.data} remove={this.removeTodo}/>
+      <div>
+        <div className={style.todoApp}>
+          <Title dataList={this.state.data.length}/>
+        </div>
+        <div>
+          <ToDoList todoTasks={this.state.data} remove={this.removeTodo}/>
+        </div>
       </div>
     )
   }

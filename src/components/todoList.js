@@ -1,21 +1,21 @@
 import React from 'react';
 import style from '../styles/ToDoList.css';
 
-const ToDoList = props => {
-  const todoListMap = this.props.todo.map(function(data){
+class ToDoList extends React.Component {
+  render() {
+    const {todoTasks} = this.props;
+    const todoTask = todoTasks.map(data => {
+        <li key={data.id}>
+          <h3>{data.id}</h3>
+          <span>{data.text}</span>
+        </li>
+    });
+
     return (
-      <li>
-        <h3>{data.id}</h3>
-        <span>{data.text}</span>
-      </li>
-    )
-  },
-  render(){
-    return (
-      <ol className = {style.todolist} onClick = {props.remove}>
-        <{todoListMap}/>
-      </ol>
-    )
+    <ul className={style.todolist} onClick={this.props.remove}>
+      {this.todoTask}
+    </ul>
+    );
   }
 }
 
