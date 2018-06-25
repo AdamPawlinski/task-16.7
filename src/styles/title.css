@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Sunflower:300');
 .title {
-  background-color: #222;
+  font-family: "Sunflower", sans-serif;
+  background-color: #777;
   color: #F5F5F5;
   font-size: 24px;
   display: flex;
