@@ -4,7 +4,7 @@ import style from '../styles/app.css';
 import Title from '../components/title';
 import ToDoList from '../components/todoList.js';
 import ToDo from '../components/todo';
-import todoForm from '../components/todoForm'
+import TodoForm from '../components/todoForm'
 import { hot } from 'react-hot-loader';
 
 class App extends React.Component {
@@ -49,11 +49,11 @@ class App extends React.Component {
         <div className={style.todoApp}>
           <Title dataList={this.state.data.length}/>
         </div>
+        {/* <div>
+          <TodoForm addToDo={this.addToDo}/>
+        </div> */}
         <div>
-          <todoForm addToDo={this.addToDo}/>
-        </div>
-        <div>
-          <ToDoList  todoTasks={this.state.data} remove={this.removeTodo.bind(this)}/>
+          <ToDoList todoTasks={this.state.data} remove={this.removeTodo.bind(this)}/>
         </div>
       </div>
     )
