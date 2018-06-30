@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'uuid';
-import style from '../styles/app.css';
+import styles from '../styles/app.css';
 import Title from '../components/title';
 import ToDoList from '../components/todoList.js';
 import ToDo from '../components/todo';
@@ -27,11 +27,21 @@ class App extends React.Component {
           }
       ]
     };
+    this.addToDo = this.addToDo.bind(this);
+    this.changeToDo = this.changeToDo.bind(this);
   }
 
-  addToDo(val) {
+  changeToDo(e) {
+    this.setState({data: {
+      text: e.target.value
+    }
+    })
+  }
+
+  addToDo(e) {
+    e.preventDefault();
     const todo = {
-      text: val,
+      text: textToDo,
       id: uuid.v4(),
     };
     const data = [...this.state.data, todo];
@@ -39,19 +49,19 @@ class App extends React.Component {
   }
 
   removeTodo(id) {
-    const remainder = this.state.data.filter(todo => todo.id !== id).bind(this);
+    const remainder = this.state.data.filter(todo => todo.id !== id);
     this.setState({data: remainder});
   }
 
   render() {
     return (
-      <div>
-        <div className={style.todoApp}>
+      <div className={styles.toDoApp}>
+        <div className={styles.title}>
           <Title dataList={this.state.data.length}/>
         </div>
-        {/* <div>
-          <TodoForm addToDo={this.addToDo}/>
-        </div> */}
+        <div>
+          <TodoForm addToDo={this.addToDo} changeToDo={this.changeToDo} textToDo={this.state.data.text}/>
+        </div>
         <div>
           <ToDoList todoTasks={this.state.data} remove={this.removeTodo.bind(this)}/>
         </div>

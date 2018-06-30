@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Sunflower:300');
-.todoApp {
-    font-family: "Sunflower", sans-serif;
+
+.toDoApp {
+  font-family: "Sunflower", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
     background-color: #F5F5F5;
     color: #222;
     display: flex;

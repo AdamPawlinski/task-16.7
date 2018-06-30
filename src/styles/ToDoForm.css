@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Sunflower:300');
+
+.ToDoForm {
+  display: flex;
+  justify-content: center;
+  font-family: "Sunflower", sans-serif;
+  border: 1px dotted #777;
+  margin: 3vh;
+  padding: 1vh 1vw;
+  width: 40vw;
+  border-radius: 3%;
+  box-shadow: 1px 1px 1px #777;
+}
