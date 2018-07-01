@@ -11,6 +11,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
+      textToDo: '',
       data: [
           {
           id: 1,
@@ -22,7 +23,7 @@ class App extends React.Component {
           id: 3,
               text: 'feed my cat'
           }, {
-            id: 4,
+          id: 4,
               text: 'walk the dog'
           }
       ]
@@ -31,21 +32,18 @@ class App extends React.Component {
     this.changeToDo = this.changeToDo.bind(this);
   }
 
-  changeToDo(e) {
-    this.setState({data: {
-      text: e.target.value
-    }
-    })
-  }
+  changeToDo(e) {this.setState({textToDo: e.target.value});}
 
   addToDo(e) {
     e.preventDefault();
     const todo = {
-      text: textToDo,
       id: uuid.v4(),
+      text: this.state.textToDo
     };
-    const data = [...this.state.data, todo];
-    this.setState({data});
+    this.setState({
+      textToDo: '',
+      data: [...this.state.data, todo]
+    });
   }
 
   removeTodo(id) {
@@ -60,7 +58,7 @@ class App extends React.Component {
           <Title dataList={this.state.data.length}/>
         </div>
         <div>
-          <TodoForm addToDo={this.addToDo} changeToDo={this.changeToDo} textToDo={this.state.data.text}/>
+          <TodoForm addToDo={this.addToDo} changeToDo={this.changeToDo} textToDo={this.state.textToDo}/>
         </div>
         <div>
           <ToDoList todoTasks={this.state.data} remove={this.removeTodo.bind(this)}/>

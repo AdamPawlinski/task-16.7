@@ -4,11 +4,9 @@ import ToDo from './todo';
 
 const ToDoList = (props) => (
       <ul className={styles.todolist}>
-        {this.props.todoTasks.map(data => {
-          return (
-              <ToDo key={data.id}  data={data} remove={this.props.remove}/>
-          );
-        })}
+        {props.todoTasks.map(data => (
+          <ToDo key={data.id}  data={data} remove={props.remove}/>
+        ))}
       </ul>
     )
 
